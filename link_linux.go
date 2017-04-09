@@ -781,6 +781,11 @@ func (h *Handle) linkModify(link Link, flags int) error {
 		req.AddData(qlen)
 	}
 
+	if base.HardwareAddr != nil {
+		hwaddr := nl.NewRtAttr(syscall.IFLA_ADDRESS, []byte(base.HardwareAddr))
+		req.AddData(hwaddr)
+	}
+
 	if base.Namespace != nil {
 		var attr *nl.RtAttr
 		switch base.Namespace.(type) {
