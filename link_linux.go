@@ -686,7 +686,6 @@ func (h *Handle) LinkAdd(link Link) error {
 }
 
 func (h *Handle) linkModify(link Link, flags int) error {
-	// TODO: set mtu and hardware address
 	// TODO: support extra data for macvlan
 	base := link.Attrs()
 
